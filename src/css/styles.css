@@ -1,0 +1,31 @@
+.noappear {
+    opacity: 0;
+    transform: translateY(220px);
+}
+
+.animation {
+    transition:  all .4s ease-in-out;
+    z-index: 0;
+}
+
+.animation2 {
+    transition:  all .4s ease-in-out;
+    z-index: 0;
+}
+
+nav {
+    z-index: 1;
+}
+
+.appear {
+    transform: translateY(0);
+}
+
+.noTranslateX {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.translateX {
+    transform: translateX(0);
+}
