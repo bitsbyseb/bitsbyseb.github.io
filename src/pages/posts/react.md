@@ -1,6 +1,6 @@
 ---
 title: "React, the framework for the web"
-layout: ../../layouts/postlayout.astro
+layout: ../../layouts/postLayout.astro
 pubDate: 2023-10-14
 description: 'This is the first post of my new Astro blog.'
 author: 'Johan Puentes'
