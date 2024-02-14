@@ -25,7 +25,46 @@ const { title } = Astro.props;
   </head>
   <body>
     <Header />
-    <slot/>
+    <slot />
     <Footer />
   </body>
+  <script>
+    const buttonTheme = document.getElementById("theme") as HTMLButtonElement;
+    const htmlElement = document.querySelector("html") as HTMLElement;
+
+    if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+
+    const theme = localStorage.getItem('theme');
+
+    if (theme === 'dark') {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+
+    window
+      .matchMedia("(prefers-color-scheme:dark)")
+      .addEventListener("change", () => {
+        if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+          htmlElement.classList.add("dark");
+        } else {
+          htmlElement.classList.remove("dark");
+        }
+      });
+
+    buttonTheme.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem('theme','ligth');
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem('theme','dark');
+      }
+    });
+  </script>
 </html>

@@ -49,30 +49,3 @@
     @apply w-24 h-10 flex justify-center items-center cursor-pointer border-2 border-terciary text-terciary hover:bg-terciary hover:text-primary rounded-lg text-center font-bold;
   }
 </style>
-<script>
-  const buttonTheme = document.getElementById("theme") as HTMLButtonElement;
-  const htmlElement = document.querySelector("html") as HTMLElement;
-
-  if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
-    htmlElement.classList.add("dark");
-  } else {
-    htmlElement.classList.remove("dark");
-  }
-
-  window.matchMedia("(prefers-color-scheme:dark)").addEventListener('change',()=> {
-    if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
-    htmlElement.classList.add("dark");
-  } else {
-    htmlElement.classList.remove("dark");
-  }
-  });
-
-  buttonTheme.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (htmlElement.classList.contains('dark')) {
-      htmlElement.classList.remove('dark');
-    } else {
-      htmlElement.classList.add('dark');
-    }
-    });
-</script>
