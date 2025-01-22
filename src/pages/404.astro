@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/layout.astro";
+const msg = "404:Bad Request";
+---
+
+<Layout title={msg}>
+  <main
+    class="w-full h-auto inline-flex dark:bg-primary bg-white text-start justify-center items-center"
+  >
+    <div class="w-1/2 h-full flex flex-col justify-center text-center space-y-4">
+        <h2 class="dark:text-white text-primary text-6xl font-extrabold max-sm:text-lg  whitespace-break-spaces">
+          Cannot find the resoucre<span class="text-4xl border-primary rounded-lg border-2 bg-gray-700 text-white max-sm:text-xl" id="notFound"></span>? 
+    </h2>
+      <p class="text-3xl max-sm:text-lg dark:text-quaternary text-primary">
+        Try go to the <a
+          href="/"
+          aria-label="go to main page"
+          class="underline text-terciary">main page</a
+        > or <a
+          href="/blog"
+          aria-label="go to blogs page"
+          class="underline text-terciary">Blogs Page</a
+        >
+      </p>
+    </div>
+
+    <div class="w-1/2 h-full">
+        <img class="w-full h-full" src="/404.svg" alt="404 error">
+    </div>
+  </main>
+</Layout>
+<script>
+  const spanEl = document.getElementById('notFound') as HTMLDivElement;
+  const  input = document.URL;
+  const regex = /\/([^\/]+)$/;
+  const output = input.match(regex);
+  
+  if (output !== null) {
+    spanEl.innerText = output[1];
+  }
+</script>

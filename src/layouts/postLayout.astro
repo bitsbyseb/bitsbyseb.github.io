@@ -1,0 +1,45 @@
+---
+import Layout from "./layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <main
+    class="w-full h-full dark:bg-primary bg-white flex flex-col justify-center items-center py-9 space-y-5 px-4 dark:text-white text-black text-start"
+  >
+    <div class="w-auto h-12 self-start text-xl">
+      <a href="/" class="w-full h-auto flex justify-center items-center underline space-x-3 text-terciary hover:no-underline">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 -960 960 960"
+          width="30"
+          fill="#79D2CE"
+          ><path
+            d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+          ></path></svg
+        >Go to Home</a
+      >
+    </div>
+    <h1 class="text-5xl dark:text-white font-extrabold text-center">
+      {frontmatter.title}
+    </h1>
+    <img
+      src={frontmatter.image.url}
+      width="300"
+      class="self-center"
+      alt={frontmatter.image.alt}
+    />
+    <div class="postInfo w-auto text-center flex justify-around space-x-5">
+      <p>
+        Written by: <a href="/" class="underline text-terciary"
+          >{frontmatter.author}</a
+        >
+      </p>
+      <p>{frontmatter.pubDate.slice(0, 10)}</p>
+    </div>
+    <div class="w-1/2 h-full text-start max-sm:w-full px-6">
+      <slot />
+    </div>
+  </main>
+</Layout>

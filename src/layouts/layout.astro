@@ -1,0 +1,69 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Hi,my name is Johan Sebastian Puentes and im a web developer and student, i love the web and make web applications for it"
+    />
+    <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!--  -->
+    <title>{title || "Johan.dev"}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+  <script>
+    const buttonTheme = document.getElementById("theme") as HTMLButtonElement;
+    const htmlElement = document.querySelector("html") as HTMLElement;
+
+    if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+
+    const theme = localStorage.getItem('theme');
+    if (theme && theme === 'dark') {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+
+    window
+      .matchMedia("(prefers-color-scheme:dark)")
+      .addEventListener("change", () => {
+        if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+          htmlElement.classList.add("dark");
+        } else {
+          htmlElement.classList.remove("dark");
+        }
+      });
+
+    buttonTheme.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem('theme','ligth');
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem('theme','dark');
+      }
+    });
+  </script>
+</html>

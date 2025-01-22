@@ -1,0 +1,60 @@
+---
+import ProfileImgDiv from "./profileimg.astro";
+const socialMedia = [
+  {
+    name: "Twitter",
+    link: "https://twitter.com/puentes_pulido",
+  },
+  {
+    name: "Github",
+    link: "https://github.com/sebastianpuentespulido",
+  },
+  {
+    name: "dev.to",
+    link: "https://dev.to/johansebastianpuentes",
+  },
+  {
+    name: "Instagram",
+    link: "https://instagram.com/puentes_xd?",
+  },
+];
+
+const fullName = "Johan Sebastian Puentes Pulido";
+const phrase = "Web Developer and Student";
+const open = "<";
+const close = "/>";
+---
+
+<footer
+  class="w-full h-72 dark:bg-primary bg-white flex flex-col justify-center items-center space-y-5 border-t-8 border-terciary"
+>
+  <div class="w-full space-x-4 flex justify-center items-center">
+    {
+      socialMedia.map((el) => {
+        return (
+          <a class="links" role="link" aria-label="next page" href={el.link}>
+            {el.name}
+          </a>
+        );
+      })
+    }
+  </div>
+  <img
+    class={`w-[5rem] h-[5rem] border-4 border-terciary rounded-[50%] object-cover`}
+    src="/profile.png"
+    alt="profile"
+  />
+  <h2 class="text-xl font-semiold dark:text-quaternary textterciary">
+    {fullName}
+  </h2>
+  <p class="text-2xl font-bold text-center">
+    <span class="dark:text-terciary text-terciary">{open}</span><i
+      class="dark:text-quaternary text-primary">{phrase}</i
+    ><span class="dark:text-terciary text-terciary">{close}</span>
+  </p>
+  <style>
+    .links {
+      @apply dark:text-terciary text-primary hover:underline text-lg;
+    }
+  </style>
+</footer>

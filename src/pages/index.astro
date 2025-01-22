@@ -1,0 +1,147 @@
+---
+import ProfileImgDiv from "../components/profileimg.astro";
+import Layout from "../layouts/layout.astro";
+import "../css/styles.css";
+import projects from '../projects.json';
+import ProjectDiv from "../components/projectDiv.astro";
+import Repos from "../components/repos.astro";
+import { Image } from "astro:assets";
+const profileData = [
+  { key: "name", value: "Johan Sebastian Puentes Pulido" },
+  { key: "age", value: "20" },
+  { key: "country", value: "Colombia" },
+  { key: "languages", value: "['English','Spanish']" },
+  { key: "programming_languages", value: "[JavaScript,TypeScript,]" },
+];
+---
+
+<Layout title="Johan Puentes">
+  <main class="w-full h-auto">
+    <section
+      class="w-full h-auto flex justify-center bg-white dark:bg-primary gap-5 p-6 max-sm:flex-col-reverse"
+    >
+      <div
+        class="w-1/2 h-full max-sm:w-full max-sm:h-1/2 grid place-items-center"
+      >
+        <ProfileImgDiv
+          width="35"
+          height="35"
+          class="max-sm:w-[300px] max-sm:h-[300px]"
+        />
+      </div>
+      <div
+        class="w-1/2 h-full max-sm:w-full max-sm:h-1/2 flex justify-center items-center"
+      >
+        <h1
+          class="dark:text-quaternary text-black text-8xl font-extrabold max-sm:text-4xl text-center animation noTranslateX"
+        >
+          Hi,I'm <span class="text-terciary">Johan Sebastian Puentes</span
+          >.<span class="underline text-secondary">Web Developer</span> and <span
+            class="underline text-secondary">Student</span
+          >.
+        </h1>
+      </div>
+    </section>
+    <!-- ---- -->
+    <section
+      class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-terciary p-8 space-y-6"
+    >
+      <div
+        class="w-full h-auto flex justify-between items-center svgs-container max-sm:space-x-4"
+      >
+    <Image src="/docker.svg" width="150" height="150" alt="docker" class="animation noappear max-sm:hidden">
+        <!-- -- -->
+        <h2 class="text-6xl max-sm:text-3xl text-center font-bold text-secondary">About Me</h2>
+        <!-- --- -->
+        <Image src="/nodejs.svg" alt="nodejs" width="150" height="150" class="animation noappear max-sm:hidden">
+      </div>
+      <div class="w-full h-full flex items-center justify-center max-sm:flex-col max-sm:space-y-4 bg-white dark:bg-primary">
+        <h2
+          class="w-1/2 max-sm:w-full h-full break-all text-start font-bold text-terciary grid place-items-center max-sm:text-[15px]"
+        >
+          {
+            profileData.map((x) => {
+              return (
+                <span class="text-primary dark:text-secondary w-full flex text-2xl">
+                  {x.key}:<p class="text-secondary dark:text-quaternary">{x.value}</p>
+                </span>
+              );
+            })
+          }
+        </h2>
+        <p
+          class="w-1/2 max-sm:w-full text-2xl text-dark dark:text-white text-start animation noTranslateX"
+        >
+          Hi, im Johan, im web developer from my childhood,I like to learn on my
+          own and experience live the feeling of learning something new every
+          day, I have worked in online developer communities and I would like to
+          collaborate with you.
+        </p>
+      </div>
+      <div
+        class="w-full h-auto flex justify-between items-center svgs-container"
+      >
+      <Image src="/typescript.svg" alt="typescript" width="150" height="150" class="animation noappear max-sm:hidden">
+        <!-- --- -->
+      <Image src="/tailwindcss.svg" alt="tailwind" width="150" height="150" class="animation noappear max-sm:hidden">
+      </div>
+    </section>
+    <!-- --- -->
+    <section class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-terciary p-8 space-y-6">
+      <h2 class="text-center text-6xl text-secondary font-bold">Projects</h2>
+      <br/>
+      <div class="w-full h-full flex flex-wrap gap-10 justify-center">
+        {
+          projects.map(x => {
+            return (<ProjectDiv title={x.title} description={x.description} image={x.image} repo={x.repo} tecnologies={x.tecnologies} url={x.url} deploy={x.deploy}/>);
+          })
+        }
+      </div>
+    </section>
+    <!-- --- -->
+    <section class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-terciary p-8 space-y-6">
+      <h2 class="text-center text-4xl text-secondary font-bold">Repositories</h2>
+      <div class="w-full h-auto flex flex-wrap justify-start gap-5">
+        <Repos/>
+      </div>
+    </section>
+  </main>
+</Layout>
+<script>
+  const svgs = document.querySelectorAll(".animation");
+  const elementsX = document.querySelectorAll(".animation2");
+
+  const observer = new IntersectionObserver(animate, {
+    threshold: 0,
+  });
+
+  function animate(entries:IntersectionObserverEntry[], _observer:IntersectionObserver):void {
+    entries.forEach((x) => {
+      if (x.isIntersecting) {
+        if (x.target.classList.contains("noappear")) {
+          x.target.classList.remove("noappear");
+          x.target.classList.add("appear");
+        } else if (x.target.classList.contains("noTranslateX")) {
+          x.target.classList.remove("noTranslateX");
+          x.target.classList.add("translateX");
+        }
+      } /** else {
+        if (x.target.classList.contains("appear")) {
+          x.target.classList.remove("appear");
+          x.target.classList.add("noappear");
+        } else if (x.target.classList.contains("translateX")) {
+          x.target.classList.remove("translateX");
+          x.target.classList.add("noTranslateX");
+        }
+      }*/
+    });
+  }
+
+  svgs.forEach((x) => {
+    observer.observe(x);
+  });
+
+  elementsX.forEach((x) => {
+    observer.observe(x);
+  });
+</script>

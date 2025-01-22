@@ -1,0 +1,56 @@
+[
+    {
+        "title":"To Do List",
+        "description":"To Do project, you can write and delete tasks.",
+        "image":"/images/screenshot-0.webp",
+        "url":"https://bitsbyseb.github.io/ToDo-List-JS/",
+        "repo":"https://github.com/bitsbyseb/ToDo-List-JS",
+        "tecnologies":["HTML","CSS","JavaScript"],
+        "deploy":true
+    },
+    {
+        "title":"JS-Chat",
+        "description":"chat between pages from the same domain using Broadcast API",
+        "image":"/images/screenshot-1.webp",
+        "url":"https://bitsbyseb.github.io/JS-chat/",
+        "repo":"https://github.com/bitsbyseb/JS-chat",
+        "tecnologies":["HTML","CSS","JavaScript"],
+        "deploy":true
+    },
+    {
+        "title":"Titanfall Inserction Observer",
+        "description":"Titanfall Website with Observer API",
+        "image":"/images/screenshot-2.webp",
+        "url":"https://bitsbyseb.github.io/Inserction-Observer/",
+        "repo":"https://github.com/bitsbyseb/Inserction-Observer",
+        "tecnologies":["HTML","CSS","JavaScript"],
+        "deploy":true
+    },
+    {
+        "title":"Platzi Travel",
+        "description":"Project from Platzi's tailwind course",
+        "image":"/images/screenshot-3.webp",
+        "url":"https://bitsbyseb.github.io/tailwind-init/src/index.html",
+        "repo":"https://github.com/bitsbyseb/tailwind-init",
+        "tecnologies":["HTML","CSS","TailwindCSS"],
+        "deploy":true
+    },
+    {
+        "title":"Temperature App",
+        "description":"Transform any temperature to C, F, K",
+        "image":"/images/screenshot-4.webp",
+        "url":"https://bitsbyseb.github.io/temperature-app",
+        "repo":"https://github.com/bitsbyseb/temperature-app",
+        "tecnologies":["HTML","CSS","JavaScript"],
+        "deploy":true
+    },
+    {
+        "title":"Github API Clone",
+        "description":"custom github api proxy connected to official github api without auth",
+        "image":"/images/screenshot-5.webp",
+        "url":"https://github-api.deno.dev/",
+        "repo":"https://github.com/bitsbyseb/github-api",
+        "tecnologies":["NodeJS","TypeScript","Express","Docker"],
+        "deploy":true
+    }
+]
