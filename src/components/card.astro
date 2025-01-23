@@ -8,7 +8,7 @@ interface Props {
 const {title,desc,url,date} = Astro.props;
 ---
 <div class="w-auto h-auto overflow-hidden text-start">
-    <h1 class="text-terciary text-2xl font-bold"><a class="text-4xl text-terciary" href={url}>{title}</a></h1>
+    <h1 class="text-tertiary text-2xl font-bold"><a class="text-4xl text-tertiary" href={url}>{title}</a></h1>
     <p class="text-black dark:text-white text-xl">{date}</p>
     <p class="text-black dark:text-white text-2xl mt-2">{desc}</p>
     <a href={url} class="text-secondary underline hover:no-underline">Read More</a>

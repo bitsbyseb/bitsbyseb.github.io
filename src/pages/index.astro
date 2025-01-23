@@ -23,11 +23,7 @@ const profileData = [
       <div
         class="w-1/2 h-full max-sm:w-full max-sm:h-1/2 grid place-items-center"
       >
-        <ProfileImgDiv
-          width="35"
-          height="35"
-          class="max-sm:w-[300px] max-sm:h-[300px]"
-        />
+        <ProfileImgDiv/>
       </div>
       <div
         class="w-1/2 h-full max-sm:w-full max-sm:h-1/2 flex justify-center items-center"
@@ -35,7 +31,7 @@ const profileData = [
         <h1
           class="dark:text-quaternary text-black text-8xl font-extrabold max-sm:text-4xl text-center animation noTranslateX"
         >
-          Hi,I'm <span class="text-terciary">Johan Sebastian Puentes</span
+          Hi,I'm <span class="text-tertiary">Johan Sebastian Puentes</span
           >.<span class="underline text-secondary">Web Developer</span> and <span
             class="underline text-secondary">Student</span
           >.
@@ -44,7 +40,7 @@ const profileData = [
     </section>
     <!-- ---- -->
     <section
-      class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-terciary p-8 space-y-6"
+      class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-tertiary p-8 space-y-6"
     >
       <div
         class="w-full h-auto flex justify-between items-center svgs-container max-sm:space-x-4"
@@ -57,7 +53,7 @@ const profileData = [
       </div>
       <div class="w-full h-full flex items-center justify-center max-sm:flex-col max-sm:space-y-4 bg-white dark:bg-primary">
         <h2
-          class="w-1/2 max-sm:w-full h-full break-all text-start font-bold text-terciary grid place-items-center max-sm:text-[15px]"
+          class="w-1/2 max-sm:w-full h-full break-all text-start font-bold text-tertiary grid place-items-center max-sm:text-[15px]"
         >
           {
             profileData.map((x) => {
@@ -87,19 +83,19 @@ const profileData = [
       </div>
     </section>
     <!-- --- -->
-    <section class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-terciary p-8 space-y-6">
+    <section class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-tertiary p-8 space-y-6">
       <h2 class="text-center text-6xl text-secondary font-bold">Projects</h2>
       <br/>
       <div class="w-full h-full flex flex-wrap gap-10 justify-center">
         {
           projects.map(x => {
-            return (<ProjectDiv title={x.title} description={x.description} image={x.image} repo={x.repo} tecnologies={x.tecnologies} url={x.url} deploy={x.deploy}/>);
+            return (<ProjectDiv title={x.title} description={x.description} image={x.image} repo={x.repo} technologies={x.technologies} url={x.url} deploy={x.deploy}/>);
           })
         }
       </div>
     </section>
     <!-- --- -->
-    <section class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-terciary p-8 space-y-6">
+    <section class="w-full h-auto bg-white dark:bg-primary  flex-col justify-center items-center border-t-8 border-tertiary p-8 space-y-6">
       <h2 class="text-center text-4xl text-secondary font-bold">Repositories</h2>
       <div class="w-full h-auto flex flex-wrap justify-start gap-5">
         <Repos/>

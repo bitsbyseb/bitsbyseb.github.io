@@ -4,12 +4,12 @@ interface Props {
   description: string;
   image: string;
   repo: string;
-  tecnologies: string[];
+  technologies: string[];
   url: string;
   deploy: boolean;
 }
 
-const { title, description, image, repo, tecnologies, url, deploy } =
+const { title, description, image, repo, technologies, url, deploy } =
   Astro.props;
 ---
 
@@ -25,7 +25,7 @@ const { title, description, image, repo, tecnologies, url, deploy } =
   </div>
   <div class="px-6 pt-4 pb-2">
     {
-      tecnologies.map((x) => {
+      technologies.map((x) => {
         let template = `${x}`;
         return (
           <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -53,7 +53,7 @@ const { title, description, image, repo, tecnologies, url, deploy } =
     }
     <a
       href={repo}
-      class="bg-secondary text-white font-bold py-2 px-4 rounded-md hover:bg-terciary hover:text-quaternary inline-flex items-center gap-2"
+      class="bg-secondary text-white font-bold py-2 px-4 rounded-md hover:bg-tertiary hover:text-quaternary inline-flex items-center gap-2"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
